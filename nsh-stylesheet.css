@@ -128,6 +128,9 @@ h2 {
 	position: relative;
 	display: inline-block;
 }
+.make-buttons.orange-buttons em a {
+	background: #F77E2D;
+}
 
 .btn.btn-primary {
 	background: #33bad7;
@@ -152,11 +155,14 @@ h2 {
 .learn-button em a {
 	padding: 23px 70px 23px 30px;
 }
+.make-buttons.small-buttons em a {
+	padding: 10px 60px 10px 20px;
+}
 
 .btn.btn-primary:hover,
 .btn.btn-primary:focus,
 .make-buttons em a:hover,
-.make-buttons ema:focus {
+.make-buttons em a:focus {
 	border-color: transparent;
 	background: #2da7c1;
 }
@@ -1887,6 +1893,678 @@ a[id*="LinkToCalendar"]:focus {
 	flex-wrap: wrap;
 }
 
+/****** Fixation on Histology filtered blog ******/
+
+.flex-66-33 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 40px;
+	margin-bottom: 15px;
+}
+.flex-66-33 > .col-md-4 {
+	display: flex;
+	justify-content: flex-end;
+}
+.flex-66-33 > .col-md-8 h3 {
+	margin-top: 0;
+}
+.grid {
+	min-height: 150px;
+}
+.grid div[id*="BlogContents"] {
+    margin-left: -15px;
+    margin-right: -15px;
+	background: #fff;
+	margin-bottom: 60px;
+}
+.grid .pagination,
+.grid div[id*="BlogContents"] > .row:first-child,
+.grid div[id*="BlogContents"] > .row-border-top:last-child,
+.grid div[id*="ThreadFollowIcon"],
+.grid .blogs-block .col-md-8.col-sm-8 + .col-md-4 {
+    display: none;
+}
+.grid .blogs-block {
+    width: calc(33.33333% - 30px);
+    margin: 15px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05), 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 0;
+}
+@keyframes imgcontainerloading {
+	0% {
+		background: #233d4d;
+	}
+	50% {
+		background: #3c5b6e;
+	}
+	100% {
+		background: #233d4d;
+	}
+}
+.grid .blogs-block .img-container {
+    background-size: cover;
+    background-position: center;
+	height: 200px;
+	position: relative;
+}
+.grid .blogs-block .img-container::before {
+	content: '';
+	opacity: 0;
+	transition: .3s;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	animation-name: imgcontainerloading;
+	animation-duration: 3s;
+}
+.grid .blogs-block .img-container.loading::before {
+	opacity: 1;
+	transition: .3s;
+}
+.grid .blogs-block:nth-child(odd) .img-container {
+	background-image: url('https://higherlogicdownload.s3.amazonaws.com/NSH/ca03136c-27ca-48b8-aa88-c074e49272aa/UploadedImages/Images/Fixation_on_Histology/slide-placeholder2.jpeg');
+}
+.grid .blogs-block:nth-child(even) .img-container {
+	background-image: url('https://higherlogicdownload.s3.amazonaws.com/NSH/ca03136c-27ca-48b8-aa88-c074e49272aa/UploadedImages/Images/Fixation_on_Histology/9130_T-Blue_A-Yellow_40X_P1.jpeg');
+}
+.grid .blogs-block .text-container {
+	padding: 35px 25px 20px 25px;
+	position: relative;
+}
+.grid .blogs-block .text-container .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.grid .blogs-block .text-container .col-md-12,
+.grid .blogs-block .text-container .col-md-8,
+.grid .blogs-block .row.content-row {
+    padding-left: 0;
+    padding-right: 0;
+}
+.grid .blogs-block .col-md-8.col-sm-8 {
+    width: 100%;
+}
+.grid .blogs-block h3 {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+.grid .blogs-block h3 a {
+    color: #333333;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: none;
+}
+.grid .blogs-block h3 a:hover,
+.grid .blogs-block h3 a:focus {
+    text-decoration: underline;
+    color: #18A6CE;
+}
+.grid .text-container::before {
+	width: 60px;
+	height: 60px;
+	display: inline-block;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	font-family: NSH;
+	font-weight: 400;
+	line-height: 50px;
+	font-size: 30px;
+	text-align: center;
+	color: #fff;
+	position: absolute;
+	right: 25px;
+	top: -30px;
+}
+.ihc-and-molecular .text-container::before {
+	content: '\f027';
+	background: #82195C;
+}
+.general-anatomic-pathology .text-container::before {
+	content: '\f028';
+	background: #0F93F0;
+}
+.leadership-development .text-container::before {
+	content: '\f029';
+	background: #58C2B4;
+}
+.laboratory-operations .text-container::before {
+	content: '\f02a';
+	background: #495CA1;
+}
+.imaging-and-analysis .text-container::before {
+	content: '\f02b';
+	background: #8466AC;
+}
+.member-stories .text-container::before {
+	content: '\f02c';
+	background: #D14EAC;
+}
+.lab-safety .text-container::before {
+	content: '\f02d';
+	background: #FCB041;
+}
+.governance .text-container::before {
+	content: '\f02e';
+	background: #F77E2D;
+}
+
+.grid a.label-search-tag.content-topics,
+.blogs-block .hltags .tagit li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 0;
+	border: none;
+	margin-bottom: 0;
+}
+.grid a.label-search-tag.content-topics:hover,
+.grid a.label-search-tag.content-topics:focus {
+	color: #333;
+}
+.blogs-block .hltags .tagit .tagit-choice.ui-widget-content.ui-state-default.ui-corner-all.tagit-choice-editable {
+	background: transparent;
+	color: #656565;
+	font-size: 14px;
+	line-height: 20px;
+}
+.ihc-and-molecular a.label-search-tag.content-topics {
+    color: #82195C;
+}
+.general-anatomic-pathology a.label-search-tag.content-topics {
+    color: #0F93F0;
+}
+.leadership-development a.label-search-tag.content-topics {
+    color: #58C2B4;
+}
+.laboratory-operations a.label-search-tag.content-topics {
+    color: #495CA1;
+}
+.imaging-and-analysis a.label-search-tag.content-topics {
+    color: #8466AC;
+}
+.member-stories a.label-search-tag.content-topics {
+    color: #D14EAC;
+}
+.lab-safety a.label-search-tag.content-topics {
+    color: #FCB041;
+}
+.governance a.label-search-tag.content-topics {
+    color: #F77E2D;
+}
+.grid .blogs-block .content-row .margin-top-small {
+	margin-top: 0;
+	font-size: 18px;
+	line-height: 22px;
+	color: #000;
+}
+.grid .blogs-block .content-tags {
+	padding-left: 0;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+.grid .fa-tags::before,
+.blogs-block .hltags .glyphicon::before {
+	font-family: NSH;
+	content: '\f024';
+	color: #B7B7B7;
+	font-size: 16px;
+	line-height: 1;
+}
+.grid .blogs-block .label-search-tag.year {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 20px;
+	text-decoration: underline;
+	color: #333333;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+.grid .blogs-block .label-search-tag.year:hover,
+.grid .blogs-block .label-search-tag.year:focus {
+	text-decoration: none;
+}
+.comments-and-likes {
+	border-top: 1px solid #F4F4F4;
+	padding-top: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.comments-and-likes .label-default {
+	background: transparent;
+	padding: 0;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+}
+.comments-and-likes div[id*="likeRatingContainer"],
+.blog-tags div[id*="likeRatingContainer"] {
+	margin-top: 0;
+}
+.comments-and-likes a[id*="TotalLikes"],
+.blog-tags a[id*="TotalLikes"] {
+	padding: 0;
+	border: none;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+	margin-right: 6px;
+}
+.comments-and-likes a[id*="TotalLikes"]:hover,
+.comments-and-likes a[id*="TotalLikes"]:focus,
+.blog-tags a[id*="TotalLikes"]:hover,
+.blog-tags a[id*="TotalLikes"]:focus,
+.comments-and-likes a[id*="lbLike"]:hover,
+.comments-and-likes a[id*="lbUndoLike"]:focus,
+.blog-tags a[id*="lbLike"]:hover,
+.blog-tags a[id*="lbUndoLike"]:focus {
+	background: transparent;
+}
+.comments-and-likes a[id*="TotalLikes"]:hover,
+.comments-and-likes a[id*="TotalLikes"]:focus,
+.blog-tags a[id*="TotalLikes"]:hover,
+.blog-tags a[id*="TotalLikes"]:focus {
+	text-decoration: underline;
+}
+.comments-and-likes a[id*="lbLike"],
+.blog-tags a[id*="lbLike"] {
+	padding: 0;
+	border: none;
+	font-size: 0;
+}
+.comments-and-likes a[id*="lbLike"]::before,
+.comments-and-likes a[id*="lbUndoLike"]::before,
+.blog-tags a[id*="lbLike"]::before,
+.blog-tags a[id*="lbUndoLike"]::before {
+	font-family: NSH;
+	font-size: 16px;
+	line-height: 20px;
+	color: #E84A43;
+}
+.comments-and-likes a[id*="lbLike"]::before,
+.blog-tags a[id*="lbLike"]::before {
+	content: '\f025';
+}
+.comments-and-likes a[id*="lbUndoLike"]::before,
+.blog-tags a[id*="lbUndoLike"]::before,
+.comments-and-likes a[id*="lbLike"]:hover::before,
+.comments-and-likes a[id*="lbLike"]:focus::before,
+.blog-tags a[id*="lbLike"]:hover::before,
+.blog-tags a[id*="lbLike"]:focus::before {
+	content: '\f026';
+}
+
+.no-results {
+    position: absolute;
+    bottom: 0;
+}
+
+/*** selector styling ***/
+.grid div.dropdown-group {
+    width: 100%;
+    float: none;
+    padding: 0px;
+    position: relative;
+	z-index: 2;
+	margin-bottom: 25px;
+}
+
+.dropdown-group > .HtmlContent {
+	display: flex;
+	align-items: center;
+	margin-left: -5px;
+	margin-right: -5px;
+}
+.dropdown-group > .HtmlContent > * {
+	margin: 5px 3px;
+}
+
+/*** search bar ***/
+#customSearch {
+	font-family: 'Source Sans Pro', sans-serif;
+	padding: 6px 14px;
+	color: #333333;
+	font-size: 15px;
+	line-height: 22px;
+	border: 1px solid #E5E5E5;
+	box-shadow: none;
+	border-radius: 0;
+}
+#customSearch::placeholder {
+	color: #333;
+}
+
+/*** clear all button ***/
+.dropdown-group .HtmlContent .clear-all-button {
+	font-family: 'Source Sans Pro', sans-serif;
+	background: transparent;
+	border: none;
+	padding: 0;
+	font-size: 15px;
+	line-height: 22px;
+	color: #333333;
+	margin-left: auto;
+}
+.clear-all-button::before {
+	font-family: NSH;
+	margin-right: 8px;
+	content: '\f030';
+}
+
+/*** dropdown ***/
+
+div.filter-button-group {
+    position: relative;
+	width: 275px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 15px;
+	line-height: 22px;
+	color: #333;
+	border: 1px solid #E5E5E5;
+}
+
+div.filter-button-group .filter-content {
+    width: 100%;
+    padding: 0;
+    position: relative;
+    top: 0;
+    /* z-index: 1; */
+    background: #fff;
+	font-size: 15px;
+	line-height: 22px;
+}
+
+div.filter-button-group .filter-content.open {
+    display: block;
+    border: 1px solid #e5e9eb;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.filter-button-group ul.multiple-select {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    display: none;
+    position: absolute;
+	width: 100%;
+	top: 100%;
+}
+
+div.filter-button-group .filter-content.open ul.multiple-select {
+    display: block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    background: #fff;
+    z-index: 5;
+}
+
+.filter-button-group ul.multiple-select li.checkbox-filter {
+    padding: 4px 10px;
+}
+
+div.filter-button-group .filter-label:after {
+	content: '\f02f';
+	color: #33BAD7;
+    float: right;
+	font-family: NSH;
+	font-size: 8px;
+	line-height: 22px;
+}
+
+div.filter-button-group .filter-label {
+    padding: 6px 14px;
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    /* z-index: 11; */
+	overflow: hidden;
+	font-size: 15px;
+	line-height: 22px;
+	float: left;
+}
+
+/* Customize the label (the container) */
+.filter-content .container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.filter-content .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.filter-content .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #f3f2f4;
+}
+
+/* On mouse-over, add a grey background color */
+.filter-content .container:hover input~.checkmark {
+    background-color: #e5e9eb;
+}
+
+/* When the checkbox is checked, add blue background */
+.filter-content .container input.active~.checkmark {
+    background-color: #33BAD7;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.filter-content .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.filter-content .container input.active~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.filter-content .container .checkmark:after {
+    left: 7px;
+    top: 2px;
+    width: 7px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/****** blog viewer page ******/
+@media (min-width: 992px) {
+	.blog-viewer-page .row > .col-md-8[class*="section"] {
+		padding-right: 25px;
+	}
+	.blog-viewer-page .row > .col-md-4[class*="section"] {
+		padding-left: 25px;
+	}
+}
+.blog-viewer-page {
+	padding-top: 45px;
+	padding-bottom: 45px;
+}
+.blog-tags {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.blogs-block {
+	border-top: none;
+	padding-top: 0;
+	margin-top: 0;
+}
+.blogs-block .hltags .glyphicon {
+	padding-top: 0;
+}
+.blogs-block .hltags .tagit {
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.blogs-block ul.tagit li.tagit-choice-editable {
+	margin-top: 0;
+}
+.blogs-block .ItemRatingCommentPanel {
+	flex-basis: 40px;
+	min-width: 40px;
+}
+.blog-viewer-page div[id*="BackButtonContainer"],
+.blogs-block span[id*="IconFollow"] {
+	display: none;
+}
+.blogs-block h3.blogTitle {
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 1.333333;
+	color: #333;
+	margin-top: 8px;
+	margin-bottom: 10px;
+}
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium {
+	margin-bottom: 20px;
+}
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+}
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium h4 a {
+	color: #333;
+}
+.blogs-block figure {
+	margin-bottom: 30px;
+}
+.blogs-block div[id*="dvStatsContainer"] {
+	border-top: 1px solid #F4F4F4;
+	margin-top: 30px;
+	padding-top: 20px;
+}
+.blogs-block div[id*="dvStatsContainer"] .col-md-12 {
+	padding: 0;
+}
+.blogs-block div[id*="dvStatsContainer"] .label.label-default {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 15px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 4px 10px;
+	border-radius: 4px;
+	background: #999999;
+}
+
+/*** recent posts ***/
+.recent-posts {
+	border: 1px solid #ECEBE7;
+	padding: 30px;
+	margin-bottom: 30px;
+}
+.recent-posts.ContentUserControl .HLLandingControl {
+	margin: 0;
+	border: none;
+	padding: 0;
+}
+.recent-posts .HLRecentBlogs .heading h2 {
+	background: transparent;
+	text-align: left;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 20px;
+	border: none;
+	color: #18A6CE;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 25px;
+}
+.recent-posts .HLRecentBlogs .heading h2::before,
+.recent-posts .HLRecentBlogs .heading h2::after {
+	display: none;
+}
+.recent-posts .HLRecentBlogs .Content {
+	border-left: 0;
+	border-right: 0;
+}
+.recent-posts .HLRecentBlogs ul {
+	padding-top: 0;
+	border-top: 1px solid #eee;
+}
+.recent-posts .HLRecentBlogs ul li {
+	padding: 20px 0;
+	border-bottom: 1px solid #EEEEEE;
+}
+.recent-posts .HLRecentBlogs ul li:nth-child(2) {
+	background: transparent;
+}
+.recent-posts .HLRecentBlogs ul li h3 {
+	margin-bottom: 0;
+}
+.recent-posts .HLRecentBlogs ul li .content-row {
+	display: none;
+}
+.recent-posts .HLRecentBlogs a[id*="MoreLink"] {
+	padding: 10px 60px 10px 20px;
+	background: #122F80;
+	border: none;
+	margin-top: 30px;
+	display: inline-block;
+}
+.recent-posts .HLRecentBlogs a[id*="MoreLink"]:hover,
+.recent-posts .HLRecentBlogs a[id*="MoreLink"]:focus {
+	background: #F77E2D;
+}
+
+.subscribe-box {
+	border: 1px solid #ECEBE7;
+	padding: 30px;
+}
+.subscribe-box h2 {
+	color: #18A6CE;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 25px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	padding-bottom: 0;
+}
+.subscribe-box p:last-of-type {
+	margin-bottom: 25px;
+}
+
 /****** responsiveness ******/
 
 /* large screens */
@@ -1933,6 +2611,20 @@ a[id*="LinkToCalendar"]:focus {
 	#Logo {
 		max-width: 180px;
 		bottom: -30px;
+	}
+}
+
+@media (max-width: 992px) {
+	.grid div[id*="BlogContents"] {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.flex-66-33.row > .col-md-8[class*="section"],
+	.flex-66-33.row > .col-md-4[class*="section"],
+	.grid div.dropdown-group,
+	.interior .blog-viewer-page .row-wide div[class*="section"] {
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 }
 
@@ -2030,6 +2722,16 @@ a[id*="LinkToCalendar"]:focus {
 		float: right;
 		padding-left: 10px !important;
 	}
+	.grid .blogs-block {
+		width: calc(50% - 30px);
+	}
+	.flex-66-33,
+	.flex-66-33 > .col-md-4 {
+		display: block;
+	}
+	.row.flex-66-33 > .col-md-8[class*="section"] {
+		margin-bottom: 20px;
+	}
 }
 
 @media (max-width: 768px) {
@@ -2086,6 +2788,19 @@ a[id*="LinkToCalendar"]:focus {
 	#FOOTER {
 		padding-left: 15px;
 	}
+	.grid .blogs-block {
+		width: calc(100% - 30px);
+	}
+	.grid div.dropdown-group > .HtmlContent {
+		flex-wrap: wrap;
+	}
+	.dropdown-group .HtmlContent .clear-all-button {
+		margin-left: 3px;
+	}
+	.blogs-block .btn-group>.btn, 
+	.blogs-block .btn-group-vertical>.btn {
+		float: left;
+	}
 }
 
 @media (max-width: 465px) {
@@ -2094,6 +2809,12 @@ a[id*="LinkToCalendar"]:focus {
 		height: 95px;
 		width: 110px;
 		line-height: 80px;
+	}
+	#PageTitleH1 {
+		font-size: 36px;
+	}
+	.blogs-block h3.blogTitle {
+		font-size: 28px;
 	}
 }
 
