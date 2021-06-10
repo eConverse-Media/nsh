@@ -2163,6 +2163,7 @@ a[id*="LinkToCalendar"]:focus {
 	line-height: 20px;
 	color: #333;
 	margin-right: 6px;
+	background: transparent;
 }
 .comments-and-likes a[id*="TotalLikes"]:hover,
 .comments-and-likes a[id*="TotalLikes"]:focus,
@@ -2181,7 +2182,9 @@ a[id*="LinkToCalendar"]:focus {
 	text-decoration: underline;
 }
 .comments-and-likes a[id*="lbLike"],
-.blog-tags a[id*="lbLike"] {
+.blog-tags a[id*="lbLike"],
+.comments-and-likes a[id*="lbUndoLike"],
+.blog-tags a[id*="lbUndoLike"] {
 	padding: 0;
 	border: none;
 	font-size: 0;
