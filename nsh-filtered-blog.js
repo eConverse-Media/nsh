@@ -2,6 +2,8 @@ $(function () {
     
     $('div[id*="BlogContents"]').closest('.ContentUserControl').prepend('<div class="dropdown-group"><div class="HtmlContent"></div></div>');
 
+    $('#PageTitleH1').text('Fixation on Histology blog');
+
     $('.blogs-block').each(function () {
         // handle images
         var self = this,
@@ -36,6 +38,8 @@ $(function () {
                     $(tags[i]).prependTo($(self).find('.text-container'));
                 } else if ($(tags[i]).attr('aria-label').indexOf('Year') > -1) {
                     $(tags[i]).addClass('year');
+                } else {
+                    $(tags[i]).hide();
                 }
             }
         }
