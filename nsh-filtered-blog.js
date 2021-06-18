@@ -2,7 +2,6 @@ $(function () {
     
     $('div[id*="BlogContents"]').closest('.ContentUserControl').prepend('<div class="dropdown-group"><div class="HtmlContent"></div></div>');
 
-    $('#PageTitleH1').text('Fixation on Histology blog');
 
     $('.blogs-block').each(function () {
         // handle images
