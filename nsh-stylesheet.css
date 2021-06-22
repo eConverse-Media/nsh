@@ -2,7 +2,21 @@
 img {
     max-width: 100%;
 }
-
+/***  interior grey tile ***/
+.grey-tile {
+    background: #FAFAFA;
+    border-radius: 3px;
+}
+.grey-tile {
+    padding: 20px 30px 15px 30px;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.grey-tile h2,
+.grey-tile h3 {
+    margin-top: 0px;
+}
 
 /****** basics ******/
 
@@ -2055,7 +2069,7 @@ a[id*="LinkToCalendar"]:focus {
 }
 
 .grid a.label-search-tag.content-topics,
-.blogs-block .hltags .tagit li {
+.blogs-block .user-content-hashtag {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 12px;
@@ -2070,11 +2084,16 @@ a[id*="LinkToCalendar"]:focus {
 .grid a.label-search-tag.content-topics:focus {
 	color: #333;
 }
-.blogs-block .hltags .tagit .tagit-choice.ui-widget-content.ui-state-default.ui-corner-all.tagit-choice-editable {
+.blogs-block .user-content-hashtag {
 	background: transparent;
-	color: #656565;
+	color: #333;
 	font-size: 14px;
 	line-height: 20px;
+	margin-right: 18px;
+}
+.blogs-block .user-content-hashtag:hover,
+.blogs-block .user-content-hashtag:focus {
+	text-decoration: underline;
 }
 .ihc-and-molecular a.label-search-tag.content-topics {
     color: #82195C;
@@ -2112,12 +2131,15 @@ a[id*="LinkToCalendar"]:focus {
 	margin-bottom: 12px;
 }
 .grid .fa-tags::before,
-.blogs-block .hltags .glyphicon::before {
+.blogs-block .tags-list::before {
 	font-family: NSH;
 	content: '\f024';
 	color: #B7B7B7;
 	font-size: 16px;
 	line-height: 1;
+}
+.blogs-block .tags-list::before {
+	margin-right: 6px;
 }
 .grid .blogs-block .label-search-tag.year {
 	font-family: 'Montserrat', sans-serif;
@@ -2428,17 +2450,6 @@ div.filter-button-group .filter-label {
 	padding-top: 0;
 	margin-top: 0;
 }
-.blogs-block .hltags .glyphicon {
-	padding-top: 0;
-}
-.blogs-block .hltags .tagit {
-	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-}
-.blogs-block ul.tagit li.tagit-choice-editable {
-	margin-top: 0;
-}
 .blogs-block .ItemRatingCommentPanel {
 	flex-basis: 40px;
 	min-width: 40px;
@@ -2455,18 +2466,44 @@ div.filter-button-group .filter-label {
 	margin-top: 8px;
 	margin-bottom: 10px;
 }
-.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium {
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium,
+.blogs-block .blogTitle + div[id*="UpdatePanel"] > .row.margin-bottom-medium {
 	margin-bottom: 20px;
 }
-.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium h4 {
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium > .col-md-8,
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium > .col-md-4,
+.blogs-block .blogTitle + div[id*="UpdatePanel"] > .row.margin-bottom-medium > .col-md-8,
+.blogs-block .blogTitle + div[id*="UpdatePanel"] > .row.margin-bottom-medium > .col-md-4 {
+	width: 100%;
+}
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium > .col-md-8 .form-group,
+.blogs-block .blogTitle + div[id*="UpdatePanel"] > .row.margin-bottom-medium > .col-md-8 .form-group {
+	display: block;
+}
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium h4,
+.blogs-block .blogTitle + div[id*="UpdatePanel"] > .row.margin-bottom-medium h4 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-size: 14px;
 	line-height: 20px;
 	color: #333;
 }
-.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium h4 a {
+.blogs-block div[id*="TitleContainer"] + .row.margin-bottom-medium h4 a,
+.blogs-block .blogTitle + div[id*="UpdatePanel"] > .row.margin-bottom-medium h4 a {
 	color: #333;
+}
+.blogs-block .form-group {
+	line-height: 0;
+}
+.blogs-block div[id*="ByLine"] {
+	display: flex;
+	justify-content: space-between;
+}
+.blogs-block div[id*="ByLine"] .byline-name .TitleHeading {
+	margin-right: 3px;
+}
+.blogs-block div[id*="ByLine"] .byline-name .TitleHeading::after {
+	content: ':';
 }
 .blogs-block figure {
 	margin-bottom: 30px;
