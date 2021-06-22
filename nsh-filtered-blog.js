@@ -283,7 +283,9 @@ function makinFilters() {
         var categoryTagClassConversion = category.tag;
         categoryTagClassConversion = categoryTagClassConversion.replace(/\\|\//, "").replace(/\s+/g, '-').toLowerCase();
 
-        if ($('.dropdown-group .HtmlContent > div.' + categoryTypeClassConversion + '.filter-button-group').length === 0) {
+        if ($('.dropdown-group .HtmlContent > div.' + categoryTypeClassConversion + '.filter-button-group').length === 0 &&
+        (categoryTypeClassConversion == "content-topics" ||
+        categoryTypeClassConversion == "year")) {
             $('.dropdown-group .HtmlContent').append('<div class="' + categoryTypeClassConversion + ' filter-button-group "><div class="filter-content clearfix"><span class="filter-label">Filter by ' + category.categoryType.toLowerCase() + '</span><ul class="multiple-select"></ul></div></div>');
         }
 
@@ -295,7 +297,7 @@ function makinFilters() {
 
     });
 
-    $('.filter-button-group .filter-content .multiple-select').prepend('<li class="checkbox-filter"><label class="container"><input type="checkbox" id="all" data-filter="">Show All Types<span class="checkmark"></span></label></li>');
+    $('.filter-button-group .filter-content .multiple-select').prepend('<li class="checkbox-filter"><label class="container"><input type="checkbox" id="all" data-filter="">Show All<span class="checkmark"></span></label></li>');
 
 }
 
