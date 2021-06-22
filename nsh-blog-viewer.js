@@ -39,25 +39,27 @@ $(function () {
     var byline = $(blogPost).find('div[id*="ByLinePanel"]');
 
     $(byline).wrapInner('<div class="byline-date" />');
+
     $(byline).find('a').prependTo(byline);
-    $(byline).find('.TitleHeading:first-child').prependTo(byline);
+    $(byline).find('span.TitleHeading:first-of-type').prependTo(byline);
 
     $(byline).find('> .TitleHeading').wrap('<div class="byline-name" />');
     $(byline).find('a').appendTo($(byline).find('.byline-name'));
     
-    $('.byline-date').find('.TitleHeading').remove();
+    $(byline).find('.byline-date').find('.TitleHeading').remove();
     
     var bylineDate = $(byline).find('.byline-date').text();
 
     bylineDate = $.trim(bylineDate);
-    bylineDate = bylineDate.substring(0, (bylineDate.indexOf(':') - 2));
+    if (bylineDate.indexOf(':') > -1) {
+        bylineDate = bylineDate.substring(0, (bylineDate.indexOf(':') - 2));
+    }
 
     $(byline).find('.byline-date').text(bylineDate);
 
     // remove nbsp
 
-    var nbspContainer = $(byline).closest('.form-inline').html(),
-        replacement = new RegExp(String.fromCharCode(160), 'g');
+    var nbspContainer = $(byline).closest('.form-inline').html();
 
     nbspContainer = $.trim(nbspContainer);
 
