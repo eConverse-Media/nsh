@@ -2605,6 +2605,26 @@ div.filter-button-group .filter-label {
 	margin-bottom: 25px;
 }
 
+/****** all Fixation on Histology blog posts list ******/
+.HLLandingControl ul li .title-row .col-sm-2.col-md-2 {
+    width: 50px; 
+    margin-right: 20px;
+    float: left;
+    padding: 0;
+}
+.HLLandingControl ul li .title-row .col-md-10.col-sm-10,
+.HLLandingControl ul li .title-row .col-md-7.col-sm-7 {
+    float: left;
+    width: calc(100% - 70px); 
+    padding: 0;
+}
+.HLLandingControl.SearchResults ul li .title-row .col-md-3.pull-right {
+    display: none;
+}
+.blog-posts .HLLandingControl ul li {
+	border-bottom: 1px solid #ECEBE7;
+}
+
 /****** responsiveness ******/
 
 /* large screens */
