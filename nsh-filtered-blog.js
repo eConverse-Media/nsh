@@ -8,11 +8,11 @@ $(function () {
         var self = this,
             windowWidth = $(window).width();
         
+        $(self).wrapInner('<div class="text-container" />');
         if (windowWidth > 991) {
-            handleAjaxCall(this);
-        } else {
-            $(this).wrapInner('<div class="text-container" />');
-        }
+            // handleAjaxCall(this);
+            $(self).prepend('<div class="img-container" />');
+        }   
         // handle filtering
         var tags = $(self)
                 .find('a.label-search-tag')

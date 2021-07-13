@@ -1980,11 +1980,29 @@ a[id*="LinkToCalendar"]:focus {
 	opacity: 1;
 	transition: .3s;
 }
-.grid .blogs-block:nth-child(odd) .img-container {
-	background-image: url('https://higherlogicdownload.s3.amazonaws.com/NSH/ca03136c-27ca-48b8-aa88-c074e49272aa/UploadedImages/Images/Fixation_on_Histology/slide-placeholder2.jpeg');
+.grid .blogs-block.general-anatomic-pathology .img-container {
+	background-image: url('');
 }
-.grid .blogs-block:nth-child(even) .img-container {
-	background-image: url('https://higherlogicdownload.s3.amazonaws.com/NSH/ca03136c-27ca-48b8-aa88-c074e49272aa/UploadedImages/Images/Fixation_on_Histology/9130_T-Blue_A-Yellow_40X_P1.jpeg');
+.grid .blogs-block.laboratory-operations .img-container {
+	background-image: url('');
+}
+.grid .blogs-block.ihc-and-molecular .img-container {
+	background-image: url('');
+}
+.grid .blogs-block.imaging-and-analysis .img-container {
+	background-image: url('');
+}
+.grid .blogs-block.member-stories .img-container {
+	background-image: url('');
+}
+.grid .blogs-block.leadership-development .img-container {
+	background-image: url('');
+}
+.grid .blogs-block.lab-safety .img-container {
+	background-image: url('');
+}
+.grid .blogs-block.governance .img-container {
+	background-image: url('');
 }
 .grid .blogs-block .text-container {
 	padding: 35px 25px 20px 25px;
