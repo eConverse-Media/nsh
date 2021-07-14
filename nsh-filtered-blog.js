@@ -9,10 +9,10 @@ $(function () {
             windowWidth = $(window).width();
         
         $(self).wrapInner('<div class="text-container" />');
-        if (windowWidth > 991) {
+        // if (windowWidth > 991) {
             // handleAjaxCall(this);
-            $(self).prepend('<div class="img-container" />');
-        }   
+            // $(self).prepend('<div class="img-container" />');
+        // }   
         // handle filtering
         var tags = $(self)
                 .find('a.label-search-tag')
