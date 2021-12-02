@@ -3095,6 +3095,15 @@ div.filter-button-group .filter-label {
 	}
 }
 
+/****** no page title padding ******/
+
+.no-pageTitle-padding {
+	padding-top: 0;
+}
+.no-pageTitle-padding #BreadCrumb {
+	display: none;
+}
+
 /****** responsiveness ******/
 
 /* large screens */
