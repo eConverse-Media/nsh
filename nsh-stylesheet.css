@@ -2475,6 +2475,10 @@ a[id*="LinkToCalendar"]:hover, a[id*="LinkToCalendar"]:focus {
 	color: #333;
 }
 
+#MPOuterMost #MPOuter .grid a.label-search-tag.hide-me {
+    display: none !important;
+}
+
 .blogs-block .user-content-hashtag {
 	background: transparent;
 	color: #333;
@@ -2532,7 +2536,7 @@ a[id*="LinkToCalendar"]:hover, a[id*="LinkToCalendar"]:focus {
 	margin-bottom: 12px;
 }
 
-.grid .fa-tags::before, .blogs-block .tags-list::before {
+.grid .fa-tags::before {
 	font-family: NSH;
 	content: "\f024";
 	color: #b7b7b7;

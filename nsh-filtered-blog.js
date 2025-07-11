@@ -2,171 +2,176 @@ $(function () {
     
     $('div[id*="BlogContents"]').closest('.ContentUserControl').prepend('<div class="dropdown-group"><div class="HtmlContent"></div></div>');
 
+    // handle the fact that tags now load asynchronously
 
-    $('.blogs-block').each(function () {
-        // handle images
-        var self = this,
-            windowWidth = $(window).width();
-        
-        $(self).wrapInner('<div class="text-container" />');
-        // if (windowWidth > 991) {
-            // handleAjaxCall(this);
-            // $(self).prepend('<div class="img-container" />');
-        // }   
-        // handle filtering
-        var tags = $(self)
-                .find('a.label-search-tag')
-                .toArray();
-
-        $(self).addClass("iso");
-
-        if (tags.length) {
-            for (var i = 0; i < tags.length; i++) {
-                var tag = $(tags[i])
-                    .attr("data-tag")
-                    .toLowerCase();
-                tag = tag.replace(/\\|\//, "");
-                tag = tag.replace(/\&/g, '');
-                tag = tag.replace(/\s+/g, "-");
-                $(self).addClass(tag);
-
-                // handle tag styling
-                
-                if ($(tags[i]).attr('aria-label').indexOf('Content Topics') > -1) {
-                    $(tags[i]).addClass('content-topics');
-                    $(tags[i]).prependTo($(self).find('.text-container'));
-                } else if ($(tags[i]).attr('aria-label').indexOf('Year') > -1) {
-                    $(tags[i]).addClass('year');
-                } else {
-                    $(tags[i]).hide();
+    setTimeout(function () {
+        $('.blogs-block').each(function () {
+            // handle images
+            var self = this,
+                windowWidth = $(window).width();
+            
+            $(self).wrapInner('<div class="text-container" />');
+            // if (windowWidth > 991) {
+                // handleAjaxCall(this);
+                // $(self).prepend('<div class="img-container" />');
+            // }   
+            // handle filtering
+            var tags = $(self)
+                    .find('a.label-search-tag')
+                    .toArray();
+    
+            $(self).addClass("iso");
+    
+            if (tags.length) {
+                for (var i = 0; i < tags.length; i++) {
+                    var tag = $(tags[i])
+                        .attr("data-tag")
+                        .toLowerCase();
+                    tag = tag.replace(/\\|\//, "");
+                    tag = tag.replace(/\&/g, '');
+                    tag = tag.replace(/\s+/g, "-");
+                    $(self).addClass(tag);
+    
+                    // handle tag styling
+                    
+                    if ($(tags[i]).attr('aria-label').indexOf('Content Topics') > -1) {
+                        $(tags[i]).addClass('content-topics');
+                        $(tags[i]).prependTo($(self).find('.text-container'));
+                    } else if ($(tags[i]).attr('aria-label').indexOf('Year') > -1) {
+                        $(tags[i]).addClass('year');
+                    } else {
+                        $(tags[i]).addClass('hide-me');
+                    }
                 }
             }
-        }
-
-        // handle comments/likes
-
-        var comments = $(self).find('.content-row + .row .text-right .label.label-default'),
-            likes = $(self).find('.ItemRatingCommentPanel');
-
-        $(comments).wrap('<div class="comments-and-likes" />');
-        $(self).find('.comments-and-likes').appendTo($(self).find('.text-container'));
-        $(likes).appendTo($(self).find('.comments-and-likes'));
-    });
-
-    makinFilters();
-
-    var clearAllButton = '<button type="button" onclick="clearFilters();" class="clear-all-button">Clear</button>';
-    $(clearAllButton).appendTo('.dropdown-group .HtmlContent');
-    $('.resource-search-bar input#customSearch').prependTo('.dropdown-group .HtmlContent');
-
-    $(".filter-label").click(function () {
-        $(this)
-            .parent()
-            .toggleClass("open");
-    });
-
-    $('div[id*="BlogContents"]').isotope({
-        itemSelector: '.blogs-block',
-        layout: 'masonry'
-    });
-
-    var groupFilterButtons = $('.filter-button-group')
-
-    $(groupFilterButtons).each(function (i) {
-
-        w = window;
-
-        var filterButtonGroupEach = groupFilterButtons[i];
-
-        firstFilterClass = filterButtonGroupEach.className.split(" ")[0];
-
-
-        w['arr_' + firstFilterClass] = [];
-
-    });
-
-    // Update Filters When Drop down input clicked
-    $(".checkbox-filter input").click(function () {
-        var self = $(this),
-            parent = $(self).parents(".filter-button-group"),
-            selectors = $(parent)
-                .find(".checkbox-filter input")
-                .toArray(),
-            parentGroup = $(parent)
-                .attr("class")
-                .split(/\s+/)[0],
-            label = $(parent).find(".filter-label"),
-            text = $(self)
-                .attr("id")
-                .toLowerCase(),
-            labelText,
-            defaultText = "Filter by";
-
-        //toggle active class
-        $(self).toggleClass("active");
-
-        //check for show all
-        var dataFilter = $(self).attr("data-filter");
-        if (!dataFilter && $(self).hasClass("active")) {
-            for (var i = 1; i < selectors.length; i++) {
-                var checkbox = selectors[i];
-                $(checkbox).removeClass("active");
-                checkbox.checked = false;
-            }
-        } else {
-            $(selectors[0]).removeClass("active");
-            selectors[0].checked = false;
-        }
-
-        // set dropdown label text
-        text = text.replace("-", " ");
-
-        filterButtonGroup = $('.filter-button-group');
-
-        $(filterButtonGroup).each(function (i) {
-
-            var filterButtonFirstElement = filterButtonGroup[i];
-            var elementFirstClass = filterButtonFirstElement.className.split(" ")[0];
-            var classConversion = elementFirstClass.replace(/-/g, ' ');
-
-            switch (parentGroup) {
-
-                case elementFirstClass:
-                    if (!dataFilter) {
-                        w['arr_' + elementFirstClass] = [];
-                    }
-                    labelText = w['arr_' + elementFirstClass];
-                    defaultText += " " + classConversion;
-                    break;
-            }
-
+    
+            // handle comments/likes
+    
+            var comments = $(self).find('.content-row + .row .text-right .label.label-default'),
+                likes = $(self).find('.ItemRatingCommentPanel');
+    
+            $(comments).wrap('<div class="comments-and-likes" />');
+            $(self).find('.comments-and-likes').appendTo($(self).find('.text-container'));
+            $(likes).appendTo($(self).find('.comments-and-likes'));
         });
-
-        if ($(self).hasClass("active") && !!text && text !== "all") {
-            labelText.push(text);
-        } else {
-            var index = labelText.indexOf(text);
-            if (index !== -1) {
-                labelText.splice(index, 1);
+    
+        makinFilters();
+    
+        var clearAllButton = '<button type="button" onclick="clearFilters();" class="clear-all-button">Clear</button>';
+        $(clearAllButton).appendTo('.dropdown-group .HtmlContent');
+        $('.resource-search-bar input#customSearch').prependTo('.dropdown-group .HtmlContent');
+    
+        $(".filter-label").click(function () {
+            $(this)
+                .parent()
+                .toggleClass("open");
+        });
+    
+        $('div[id*="BlogContents"]').isotope({
+            itemSelector: '.blogs-block',
+            layout: 'masonry'
+        });
+    
+        var groupFilterButtons = $('.filter-button-group')
+    
+        $(groupFilterButtons).each(function (i) {
+    
+            w = window;
+    
+            var filterButtonGroupEach = groupFilterButtons[i];
+    
+            firstFilterClass = filterButtonGroupEach.className.split(" ")[0];
+    
+    
+            w['arr_' + firstFilterClass] = [];
+    
+        });
+    
+        // Update Filters When Drop down input clicked
+        $(".checkbox-filter input").click(function () {
+            var self = $(this),
+                parent = $(self).parents(".filter-button-group"),
+                selectors = $(parent)
+                    .find(".checkbox-filter input")
+                    .toArray(),
+                parentGroup = $(parent)
+                    .attr("class")
+                    .split(/\s+/)[0],
+                label = $(parent).find(".filter-label"),
+                text = $(self)
+                    .attr("id")
+                    .toLowerCase(),
+                labelText,
+                defaultText = "Filter by";
+    
+            //toggle active class
+            $(self).toggleClass("active");
+    
+            //check for show all
+            var dataFilter = $(self).attr("data-filter");
+            if (!dataFilter && $(self).hasClass("active")) {
+                for (var i = 1; i < selectors.length; i++) {
+                    var checkbox = selectors[i];
+                    $(checkbox).removeClass("active");
+                    checkbox.checked = false;
+                }
+            } else {
+                $(selectors[0]).removeClass("active");
+                selectors[0].checked = false;
             }
-        }
+    
+            // set dropdown label text
+            text = text.replace("-", " ");
+    
+            filterButtonGroup = $('.filter-button-group');
+    
+            $(filterButtonGroup).each(function (i) {
+    
+                var filterButtonFirstElement = filterButtonGroup[i];
+                var elementFirstClass = filterButtonFirstElement.className.split(" ")[0];
+                var classConversion = elementFirstClass.replace(/-/g, ' ');
+    
+                switch (parentGroup) {
+    
+                    case elementFirstClass:
+                        if (!dataFilter) {
+                            w['arr_' + elementFirstClass] = [];
+                        }
+                        labelText = w['arr_' + elementFirstClass];
+                        defaultText += " " + classConversion;
+                        break;
+                }
+    
+            });
+    
+            if ($(self).hasClass("active") && !!text && text !== "all") {
+                labelText.push(text);
+            } else {
+                var index = labelText.indexOf(text);
+                if (index !== -1) {
+                    labelText.splice(index, 1);
+                }
+            }
+    
+            if (labelText.length) {
+                labelText = labelText.join(", ");
+                $(label).text(labelText);
+                $(parent)
+                    .find(".filter-content")
+                    .addClass("has-selection");
+            } else {
+                $(label).text(defaultText);
+                $(parent)
+                    .find(".filter-content")
+                    .removeClass("has-selection");
+            }
+    
+            updateFilters();
+    
+        });
+    }, 1500);
 
-        if (labelText.length) {
-            labelText = labelText.join(", ");
-            $(label).text(labelText);
-            $(parent)
-                .find(".filter-content")
-                .addClass("has-selection");
-        } else {
-            $(label).text(defaultText);
-            $(parent)
-                .find(".filter-content")
-                .removeClass("has-selection");
-        }
 
-        updateFilters();
-
-    });
 
     $(document).click(function (e) {
         var target = e.target,
