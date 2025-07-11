@@ -1,3 +1,13 @@
+/*** Threads social media icon in footer ***/
+.footer-social a[href*="threads"] i {
+	border: 3.5px solid #fcb040;
+    border-radius: 50%;
+    font-size: 16px;
+    padding: 5px 5px 5px 6px;
+    transform: translateY(-9px);
+    width: 34px;
+}
+
 /*** MCS 2021 - fix non-responsive images ***/
 
 img {
@@ -709,7 +719,7 @@ a[id*="LinkToCalendar"]::after, a[id*="MoreLink"]::after, .make-buttons em a::af
 }
 
 #MPheader>.row:first-child {
-	float: right;
+	/* float: right; */
 	min-width: 320px;
 }
 
